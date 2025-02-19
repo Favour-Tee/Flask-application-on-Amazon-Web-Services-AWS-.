@@ -6,9 +6,9 @@ import subprocess
 def check_flask():
     try:
         import flask
-        print("✅ Flask is already installed!")
+        print("Flask is already installed!")
     except ImportError:
-        print("❌ Flask not found. Installing now...")
+        print(" Flask not found. Installing now...")
         install_flask()
 
 # Function to install Flask
@@ -16,17 +16,17 @@ def install_flask():
     try:
         subprocess.check_call([sys.executable, "-m", "pip", "install", "--upgrade", "pip"])
         subprocess.check_call([sys.executable, "-m", "pip", "install", "flask"])
-        print("✅ Flask installed successfully!")
+        print("Flask installed successfully!")
     except Exception as e:
-        print(f"⚠️ Error installing Flask: {e}")
+        print(f"Error installing Flask: {e}")
 
 # Function to set up a virtual environment (Recommended)
 def setup_virtual_env():
     venv_dir = "venv"
     if not os.path.exists(venv_dir):
-        print("📌 Creating virtual environment...")
+        print("Creating virtual environment...")
         subprocess.check_call([sys.executable, "-m", "venv", venv_dir])
-        print("✅ Virtual environment created!")
+        print("Virtual environment created!")
     
     # Activate virtual environment (Windows & macOS/Linux)
     if os.name == "nt":
@@ -34,7 +34,7 @@ def setup_virtual_env():
     else:
         activate_script = os.path.join(venv_dir, "bin", "activate")
 
-    print(f"🔄 Activate your virtual environment using:\nsource {activate_script} (macOS/Linux) or {venv_dir}\\Scripts\\activate (Windows)")
+    print(f"Activate your virtual environment using:\nsource {activate_script} (macOS/Linux) or {venv_dir}\\Scripts\\activate (Windows)")
     print("Then install Flask again using:\n pip install flask")
 
 # Run setup functions
